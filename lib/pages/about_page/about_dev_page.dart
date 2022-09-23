@@ -19,7 +19,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(context, 'Sobre o Dev', true),
-      backgroundColor: backgroundColor,
+      backgroundColor: Theme.of(context).backgroundColor,
       bottomNavigationBar: customBottomNavigation(context),
       body: Padding(
         padding: const EdgeInsets.all(8),
@@ -29,11 +29,7 @@ class _AboutPageState extends State<AboutPage> {
             const SizedBox(height: 20),
             Text(
               'Tecnologias Favoritas',
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
+              style: Theme.of(context).textTheme.headline2,
             ),
             const SizedBox(height: 5),
             SizedBox(
@@ -48,7 +44,7 @@ class _AboutPageState extends State<AboutPage> {
                     height: 100,
                     width: 94,
                     decoration: BoxDecoration(
-                      color: cardColor,
+                      color: Theme.of(context).cardColor,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Column(
@@ -58,11 +54,7 @@ class _AboutPageState extends State<AboutPage> {
                         ),
                         Text(
                           'Flutter',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          style: Theme.of(context).textTheme.headline2,
                         )
                       ],
                     ),
@@ -73,11 +65,7 @@ class _AboutPageState extends State<AboutPage> {
             const SizedBox(height: 5),
             Text(
               'Habilidades e Competências',
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-              ),
+              style: Theme.of(context).textTheme.headline2,
             ),
             const SizedBox(height: 5),
             Container(
@@ -85,7 +73,7 @@ class _AboutPageState extends State<AboutPage> {
               height: 180,
               width: 400,
               decoration: BoxDecoration(
-                color: cardColor,
+                color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(

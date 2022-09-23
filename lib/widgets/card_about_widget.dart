@@ -1,7 +1,6 @@
 import 'package:app_masterclass_flutterando/utils/color_schema.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 class CardAbout extends StatelessWidget {
@@ -13,7 +12,7 @@ class CardAbout extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8),
       height: 320,
       decoration: BoxDecoration(
-        color: cardColor,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -30,57 +29,49 @@ class CardAbout extends StatelessWidget {
           const SizedBox(height: 13),
           Text(
             'Rodrigo Castro (RED RODRIGO)',
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
+            style: Theme.of(context).textTheme.headline2,
           ),
           const SizedBox(height: 13),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 37),
             child: Text(
               'Garoto de programa(de computador), gosto de levantar uns pesos na academia, jogo um lolzinho...',
-              style: GoogleFonts.poppins(
-                color: textColor,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
+              style: Theme.of(context).textTheme.headline3,
             ),
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
                 onPressed: () {},
-                icon: const Icon(
+                icon: Icon(
                   Icons.whatsapp,
-                  color: Colors.white,
+                  color: Theme.of(context).highlightColor,
                   size: 30,
                 ),
               ),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(
+                icon: Icon(
                   Icons.facebook,
-                  color: Colors.white,
+                  color: Theme.of(context).highlightColor,
                   size: 30,
                 ),
               ),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(
+                icon: Icon(
                   Icons.whatsapp,
-                  color: Colors.white,
+                  color: Theme.of(context).highlightColor,
                   size: 30,
                 ),
               ),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(
+                icon: Icon(
                   Icons.facebook,
-                  color: Colors.white,
+                  color: Theme.of(context).highlightColor,
                   size: 30,
                 ),
               ),

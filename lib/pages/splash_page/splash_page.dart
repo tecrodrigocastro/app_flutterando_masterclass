@@ -12,12 +12,17 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  bool isLoading = false;
   @override
   void initState() {
     super.initState();
-
     Timer(
-      const Duration(seconds: 2),
+        const Duration(seconds: 1),
+        () => setState(() {
+              isLoading = true;
+            }));
+    Timer(
+      const Duration(milliseconds: 2000),
       () {
         Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => const HomePage()));
@@ -27,16 +32,20 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: backgroundColor,
       body: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: Align(
           alignment: Alignment.center,
-          child: Image(
-            image: AssetImage('images/logo.png'),
-            fit: BoxFit.scaleDown,
+          child: AnimatedContainer(
+            duration: const Duration(seconds: 1),
+            curve: Curves.elasticIn,
+            width: !isLoading ? 100 : 300,
+            child: const Image(
+              image: AssetImage('images/masterclass_logo.png'),
+            ),
           ),
         ),
       ),

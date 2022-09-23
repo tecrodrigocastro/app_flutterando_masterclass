@@ -19,7 +19,7 @@ class _DetailsPageState extends State<DetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(context, widget.title, false),
-      backgroundColor: backgroundColor,
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView.separated(
@@ -30,22 +30,22 @@ class _DetailsPageState extends State<DetailsPage> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               height: 60,
               decoration: BoxDecoration(
-                color: cardColor,
+                color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
                 children: [
                   CircleAvatar(
-                    backgroundColor: primaryColor,
-                    child: Text('${index + 1}'),
+                    backgroundColor: Theme.of(context).primaryColor,
+                    child: Text(
+                      '${index + 1}',
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                   ),
                   const Spacer(),
                   Text(
                     'Exercicios 0${index + 1}',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(context).textTheme.headline2,
                   ),
                 ],
               ),

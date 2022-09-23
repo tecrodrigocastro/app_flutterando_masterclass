@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:app_masterclass_flutterando/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -23,11 +24,13 @@ class CustomCardHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appState = context.findAncestorStateOfType<MyAppState>();
+
     return Container(
       padding: const EdgeInsets.all(12),
       height: 220,
       decoration: BoxDecoration(
-        color: cardColor,
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -42,26 +45,16 @@ class CustomCardHome extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 title,
-                style: GoogleFonts.poppins(
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
+                style: Theme.of(context).textTheme.headline2,
               ),
               const Spacer(),
               Text(
                 'Exercicios: ',
-                style: GoogleFonts.montserrat(
-                  color: textColor,
-                  fontSize: 12,
-                  fontWeight: FontWeight.normal,
-                ),
+                style: Theme.of(context).textTheme.bodyText2,
               ),
               Text(
                 '$qtd',
-                style: GoogleFonts.poppins(
-                  fontSize: 12,
-                  color: Colors.white,
-                ),
+                style: Theme.of(context).textTheme.bodyText1,
               ),
             ],
           ),
@@ -77,17 +70,18 @@ class CustomCardHome extends StatelessWidget {
           const Spacer(),
           Row(
             children: [
-              const Image(
-                image: AssetImage('images/icones/github.png'),
-              ),
+              appState?.themeMode == ThemeMode.dark
+                  ? const Image(
+                      image: AssetImage('images/icones/github.png'),
+                    )
+                  : const Image(
+                      image:
+                          AssetImage('images/icones/Icon awesome-github.png'),
+                    ),
               const SizedBox(width: 10),
               Text(
                 'Acessar código fonte',
-                style: GoogleFonts.montserrat(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: Theme.of(context).textTheme.bodyText1,
               ),
               const Spacer(),
               InkWell(

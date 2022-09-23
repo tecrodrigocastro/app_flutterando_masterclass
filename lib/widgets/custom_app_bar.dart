@@ -1,17 +1,19 @@
+import 'package:app_masterclass_flutterando/main.dart';
 import 'package:app_masterclass_flutterando/utils/color_schema.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
 AppBar customAppBar(BuildContext context, String title, bool isLogo) {
+  final appState = context.findAncestorStateOfType<MyAppState>();
   return AppBar(
     toolbarHeight: 70,
-    backgroundColor: backgroundColor,
+    backgroundColor: Theme.of(context).backgroundColor,
     elevation: 0,
     leading: isLogo
         ? const Image(
             image: AssetImage(
-              'images/icones/logo_simples.png',
+              'images/icones/logo.png',
             ),
             fit: BoxFit.contain,
           )
@@ -19,10 +21,7 @@ AppBar customAppBar(BuildContext context, String title, bool isLogo) {
     title: RichText(
       text: TextSpan(
         text: '$title\n',
-        style: GoogleFonts.poppins(
-          fontSize: 20,
-          fontWeight: FontWeight.w500,
-        ),
+        style: Theme.of(context).textTheme.headline1,
         children: [
           TextSpan(
             text: 'Flutterando Masterclass',
@@ -36,11 +35,17 @@ AppBar customAppBar(BuildContext context, String title, bool isLogo) {
     ),
     actions: [
       IconButton(
-        onPressed: () {},
-        icon: const Image(
-          image: AssetImage('images/icones/moon.png'),
-        ),
-      )
+        onPressed: () {
+          appState?.switchTheme();
+        },
+        icon: appState?.themeMode == ThemeMode.dark
+            ? const Image(
+                image: AssetImage('images/icones/moon.png'),
+              )
+            : const Image(
+                image: AssetImage('images/icones/Icon awesome-moon.png'),
+              ),
+      ),
     ],
   );
 }
