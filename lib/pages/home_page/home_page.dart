@@ -1,6 +1,7 @@
 import 'package:app_masterclass_flutterando/pages/details_page/details_page.dart';
 import 'package:app_masterclass_flutterando/utils/color_schema.dart';
 import 'package:app_masterclass_flutterando/widgets/custom_app_bar.dart';
+import 'package:app_masterclass_flutterando/widgets/custom_bottom_natigation.dart';
 import 'package:app_masterclass_flutterando/widgets/custom_card_home.dart';
 import 'package:flutter/material.dart';
 
@@ -48,66 +49,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.all(10),
-        height: 70,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              children: [
-                const Image(
-                  image: AssetImage('images/icones/targed.png'),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  'Atividades',
-                  style: GoogleFonts.montserrat(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              ],
-            ),
-            Column(
-              children: [
-                const Image(
-                  image: AssetImage('images/icones/github.png'),
-                ),
-                const SizedBox(height: 7),
-                Text(
-                  'Repositorios',
-                  style: GoogleFonts.montserrat(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              ],
-            ),
-            Column(
-              children: [
-                const Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 27,
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  'Sobre o dev',
-                  style: GoogleFonts.montserrat(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              ],
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: customBottomNavigation(context),
     );
   }
 }
