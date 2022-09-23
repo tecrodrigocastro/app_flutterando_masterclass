@@ -6,6 +6,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:app_masterclass_flutterando/utils/color_schema.dart';
 
+import '../pages/details_page/details_page.dart';
+
 class CustomCardHome extends StatelessWidget {
   final String title;
   final int qtd;
@@ -88,20 +90,30 @@ class CustomCardHome extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              Container(
-                alignment: Alignment.center,
-                height: 34.5,
-                width: 119,
-                decoration: BoxDecoration(
-                  color: primaryColor,
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: Text(
-                  'Ver mais',
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsPage(title: title, qtd: qtd),
+                    ),
+                  );
+                },
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 34.5,
+                  width: 119,
+                  decoration: BoxDecoration(
+                    color: primaryColor,
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: Text(
+                    'Ver mais',
+                    style: GoogleFonts.poppins(
+                      fontSize: 12,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),

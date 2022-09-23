@@ -1,4 +1,6 @@
+import 'package:app_masterclass_flutterando/pages/details_page/details_page.dart';
 import 'package:app_masterclass_flutterando/utils/color_schema.dart';
+import 'package:app_masterclass_flutterando/widgets/custom_app_bar.dart';
 import 'package:app_masterclass_flutterando/widgets/custom_card_home.dart';
 import 'package:flutter/material.dart';
 
@@ -16,43 +18,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar: AppBar(
-        toolbarHeight: 70,
-        backgroundColor: backgroundColor,
-        elevation: 0,
-        leading: const Image(
-          image: AssetImage(
-            'images/icones/logo_simples.png',
-          ),
-          fit: BoxFit.contain,
-        ),
-        title: RichText(
-          text: TextSpan(
-            text: 'Atividades\n',
-            style: GoogleFonts.poppins(
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-            ),
-            children: [
-              TextSpan(
-                text: 'Flutterando Masterclass',
-                style: GoogleFonts.poppins(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Image(
-              image: AssetImage('images/icones/moon.png'),
-            ),
-          )
-        ],
-      ),
+      appBar: customAppBar(context, 'Atividades', true),
       body: Padding(
         padding: const EdgeInsets.all(5),
         child: ListView(
